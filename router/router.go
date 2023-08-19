@@ -1,9 +1,8 @@
 package router
 
 import (
-	"go-study/serve"
-
 	"github.com/gin-gonic/gin"
+	"go-study/serve"
 )
 
 func GetRouter() *gin.Engine {

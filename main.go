@@ -1,8 +1,14 @@
 package main
 
-import "go-study/router"
+import (
+	"fmt"
+	"go-study/router"
+)
 
 func main() {
-	router := router.GetRouter()
-	router.Run(":8080")
+	myRouter := router.GetRouter()
+	err := myRouter.Run(":8080")
+	if err != nil {
+		fmt.Print(err)
+	}
 }
