@@ -2,14 +2,14 @@ package serve
 
 import (
 	"github.com/gin-gonic/gin"
-	"go-study/common/status"
+	"go-study/common/response"
+	"go-study/common/token"
 )
 
 func Ping(c *gin.Context) {
-	response := status.Response{
-		Code:    status.OK,
-		Message: "成功",
-		Data:    []any{1, 2, 3, 4},
-	}
-	c.JSON(200, response)
+	c.JSON(200, response.NewResponse(200, "成功", struct {
+		Token string `json:"token"`
+	}{
+		Token: token.GetToken(),
+	}))
 }
